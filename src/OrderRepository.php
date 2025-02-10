@@ -26,9 +26,9 @@ class OrderRepository
         $stmt->execute([$id]);
         $order = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        // In case no data is found it returns null
+        // In case no data is found
         if (!$order) {
-            return null;
+            return ['error' => 'Order not found'];
         }
 
         // Fetching the order items related to the given order id
